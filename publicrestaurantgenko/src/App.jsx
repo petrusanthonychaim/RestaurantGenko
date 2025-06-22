@@ -11,12 +11,9 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/users/login" element={<LoginPageAdmin />} />
           <Route element={<BaseLayout />}>
             <Route path="/" element={<HomePage />} />
-            <Route path="/cuisine/addForm" element={<AddCuisine />} />
-            <Route path="/cuisine/show/:id" element={<EditCuisine />} />
-            <Route path="/cuisine/delete/:id" element={<AddCuisine />} />
+            <Route path="/pub/:id" element={<EditCuisine />} />
           </Route>
         </Routes>
       </BrowserRouter>

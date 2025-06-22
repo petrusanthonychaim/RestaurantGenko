@@ -14,55 +14,8 @@ export default function EditPage() {
   async function fetchCuisineId() {
     try {
       setLoading(true);
-      const { data } = await axios.get(`${baseUrl}/cuisine/show/${id}`, {
-        headers: {
-          Authorization: `Bearer ${localStorage.access_token}`,
-        },
-      });
+      const { data } = await axios.get(`${baseUrl}/pub/${id}`);
       setCuisine(data?.data);
-    } catch (error) {
-      Toastify({
-        text: error.response.data.error,
-        duration: 3000,
-        newWindow: true,
-        close: true,
-        gravity: "bottom",
-        position: "right",
-        stopOnFocus: true,
-        style: {
-          background: "#f5b300",
-          color: "black",
-          border: "solid #FFFFFF",
-          borderRadius: "10px",
-        },
-      }).showToast();
-    }
-  }
-
-  async function handleSubmit(e, form) {
-    e.preventDefault();
-    try {
-      const { data } = await axios.put(`${baseUrl}/cuisine/show/${id}`, form, {
-        headers: {
-          Authorization: `Bearer ${localStorage.access_token}`,
-        },
-      });
-      navigate("/");
-      Toastify({
-        text: `Succeed edit data ${data?.data.name}`,
-        duration: 3000,
-        newWindow: true,
-        close: true,
-        gravity: "bottom",
-        position: "right",
-        stopOnFocus: true,
-        style: {
-          background: "#f5b300",
-          color: "black",
-          border: "solid #FFFFFF",
-          borderRadius: "10px",
-        },
-      }).showToast();
     } catch (error) {
       Toastify({
         text: error.response.data.error,
@@ -90,8 +43,7 @@ export default function EditPage() {
     <>
       <CuisineForm
         cuisine={cuisine}
-        handleSubmit={handleSubmit}
-        propName="Edit Cuisine"
+        propName="Detail Cuisine"
       />
     </>
   );

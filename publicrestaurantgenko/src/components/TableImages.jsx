@@ -144,6 +144,14 @@ export default function TableImages({ cuisine, fetchCuisines }) {
               })}
             </p>
           </div>
+         <div className="mt-4 flex space-x-3 justify-end">
+            <Link to={`/pub/${cuisine.id}`}>
+              <button className="text-amber-400 hover:text-amber-600">
+                <span className="material-symbols-outlined">edit</span>
+              </button>
+            </Link>
+          </div>
+
         </div>
       </div>
     </>

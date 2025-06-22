@@ -88,38 +88,6 @@ export default function HomePage() {
   }, [currentPage, selectedCategory, sortOrder]);
 
   //FETCH CATEGORIES
-  async function fetchCategories() {
-    try {
-      setLoading(true);
-      const { data } = await axios.get(`${baseUrl}/categories/all`, {
-        headers: {
-          Authorization: `Bearer ${localStorage.access_token}`,
-        },
-      });
-      setCategories(data?.data);
-    } catch (error) {
-      Toastify({
-        text: error.response.data.message,
-        duration: 3000,
-        newWindow: true,
-        close: true,
-        gravity: "bottom",
-        position: "right",
-        stopOnFocus: true,
-        style: {
-          background: "#f5b300",
-          color: "black",
-          border: "solid #FFFFFF",
-          borderRadius: "10px",
-        },
-      }).showToast();
-    } finally {
-      setLoading(false);
-    }
-  }
-  useEffect(() => {
-    fetchCategories();
-  }, [currentPage]);
 
   // console.log(cuisines);
   // console.log(categories);

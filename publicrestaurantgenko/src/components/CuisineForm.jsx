@@ -31,38 +31,6 @@ export default function CuisineForm({ cuisine, handleSubmit, propName }) {
     });
   }
 
-  async function fetchCategories() {
-    try {
-      const { data } = await axios.get(`${baseUrl}/categories/all`, {
-        headers: {
-          Authorization: `Bearer ${localStorage.access_token}`,
-        },
-      });
-      setCategories(data?.data);
-      setAuthorId(data?.userId);
-    } catch (error) {
-      Toastify({
-        text: error.response.data.message,
-        duration: 3000,
-        newWindow: true,
-        close: true,
-        gravity: "bottom",
-        position: "right",
-        stopOnFocus: true,
-        style: {
-          background: "#f5b300",
-          color: "black",
-          border: "solid #FFFFFF",
-          borderRadius: "10px",
-        },
-      }).showToast();
-    }
-  }
-
-  useEffect(() => {
-    fetchCategories();
-  }, []);
-
   useEffect(() => {
     if (cuisine) {
       delete cuisine?.createdAt;
@@ -146,43 +114,7 @@ export default function CuisineForm({ cuisine, handleSubmit, propName }) {
             />
           </div>
           {/*  */}
-          <div>
-            <label className="label">
-              <span className="font-bold">Category Id</span>
-            </label>
-            <select
-              className="rounded-lg w-full px-3 py-2 text-black border-2 border-white rounded-lg"
-              name="category"
-              onChange={(e) => handleInput("categoryId", e)}
-              value={form?.categoryId ? form?.categoryId : "select"}
-            >
-              <option value="select" disabled>
-                Select Category
-              </option>
-              {categories.map((c) => {
-                return (
-                  <option value={c.id} key={c.id}>
-                    {c.name}
-                  </option>
-                );
-              })}
-            </select>
-          </div>
           {/*  */}
-          <div className="hidden">
-            <label className="label">
-              <span className="font-bold">Author Id</span>
-            </label>
-            <input
-              type="text"
-              className="rounded-lg w-full px-3 py-2 text-black border-2 border-white rounded-lg"
-              onChange={(e) => handleInput("authorId", e)}
-              value={form?.authorId}
-            />
-          </div>
-        </div>
-        <div className="mt-5">
-          <Button nameProp={propName} />
         </div>
       </form>
     </>

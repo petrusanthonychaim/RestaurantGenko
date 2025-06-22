@@ -30,7 +30,7 @@ export default function Navbar() {
           </li>
           <li>
             <Link
-              to="/users/login"
+              to="https://restaurant-genko-ver-admin.vercel.app"
               className="transition duration-200 hover:text-yellow-300 hover:animate-pulse"
             >
               Login
