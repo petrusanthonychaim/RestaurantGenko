@@ -2,3 +2,23 @@
 # P2-Challenge-2 (Client Side)
 
 > Tuliskan API Docs kamu di sini
+
+
+
+## Selamat datang didalam API DOCS "RESTAURANT GENKO"
+[public] https://restaurant-genko-public.vercel.app
+[admin] https://restaurant-genko-ver-admin.vercel.app
+
+untuk dapat masuk kedalam admin harap menggunakan
+
+```javascript
+ADMIN
+Email = petrus@gmail.com
+password = 12345
+```
+
+![Alt text](./restaurantgenko/src/assets/images/Restaurant%20Genko.png "Home Page")
+
+! Diwajibkan untuk login untuk dapat memasuki halaman utama.
+
+## FEATURE didalam Restaurant Genko Web App
